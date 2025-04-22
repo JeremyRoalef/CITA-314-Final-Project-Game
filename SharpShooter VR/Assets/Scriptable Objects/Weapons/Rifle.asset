@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548d3f3c20c87cc40b785f47b5e4c846, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: 
+  Damage: 7
+  MagazineSize: 5
+  ReloadTime: 2.5
+  FireRate: 1.5
+  hitVFXPrefab: {fileID: 6501633108170886200, guid: 1e0ee1a6094d4b946bf4960a3685040e, type: 3}
+  IsAutomatic: 0
+  WeaponPrefab: {fileID: 1500562582769473947, guid: acfac94339f0fc1479de7baebee39a38, type: 3}
+  CanZoom: 1

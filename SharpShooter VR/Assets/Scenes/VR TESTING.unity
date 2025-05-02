@@ -6005,6 +6005,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
+    - target: {fileID: 7787210938354415939, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
+      propertyPath: startingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: c65e21d4c7fba2646a7b50a6b3d89829, type: 2}
     - target: {fileID: 8647642076517412738, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
       propertyPath: m_InteractionManager
       value: 

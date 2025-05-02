@@ -4,10 +4,18 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
+    GameObject shootOrigin;
+
+    [SerializeField]
     ParticleSystem muzzleFlash;
 
     [SerializeField]
     LayerMask interactionLayers;
+
+    [SerializeField]
+    GameObject aimTargetPrefab;
+
+    GameObject aimTargetObject;
 
     //RaycastHit interacts with rigidbodys and colliders
     RaycastHit hit;
@@ -15,7 +23,23 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        aimTargetObject = Instantiate(aimTargetPrefab);
+        aimTargetObject.SetActive(false);
         impulseSource = GetComponent<CinemachineImpulseSource>();
+    }
+
+    private void Update()
+    {
+        //Laser sight on weapon
+        if (Physics.Raycast(shootOrigin.transform.position, shootOrigin.transform.forward,
+            out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
+        {
+            //If hit has output, this will run
+            Debug.Log(hit.collider.name);
+
+            aimTargetObject.SetActive(true);
+            aimTargetObject.transform.position = hit.point;
+        }
     }
 
     public void Shoot(WeaponSO weaponSO)
@@ -24,7 +48,7 @@ public class Weapon : MonoBehaviour
         impulseSource.GenerateImpulse();
 
         //Last argument ignores triggers
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, 
+        if (Physics.Raycast(shootOrigin.transform.position, shootOrigin.transform.forward, 
             out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
         {
             //If hit has output, this will run

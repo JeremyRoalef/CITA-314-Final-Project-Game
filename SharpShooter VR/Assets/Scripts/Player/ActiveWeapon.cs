@@ -3,6 +3,7 @@ using Cinemachine;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ActiveWeapon : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField]
     GameObject zoomVignette;
 
-    StarterAssetsInputs starterAssetsInputs;
+    [SerializeField]
+    InputActionReference shootInput;
 
     [SerializeField]
     float maxRayDistance;
@@ -30,6 +32,7 @@ public class ActiveWeapon : MonoBehaviour
 
     Weapon currentWeapon;
     WeaponSO currentWeaponSO;
+    [SerializeField]
     FirstPersonController firstPersonController;
     const string SHOOT_STRING = "Shoot";
 
@@ -40,11 +43,11 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Awake()
     {
-        starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
+        //starterAssetsInputs = GetComponentInParent<StarterAssetsInputs>();
         animator = GetComponent<Animator>();
-        cameraDefaultZoom = playerFollowCamera.m_Lens.FieldOfView;
-        firstPersonController = GetComponentInParent<FirstPersonController>();
-        defaultRotationAmount = firstPersonController.RotationSpeed;
+        //cameraDefaultZoom = playerFollowCamera.m_Lens.FieldOfView;
+        //firstPersonController = GetComponentInParent<FirstPersonController>();
+        //defaultRotationAmount = firstPersonController.RotationSpeed;
     }
 
 
@@ -59,19 +62,19 @@ public class ActiveWeapon : MonoBehaviour
     void Update()
     {
         HandleShoot();
-        HandleZoom();
+        //HandleZoom();
     }
 
     public void AdjustAmmo(int amount)
     {
         currentAmmo += amount;
-        ammoText.text = currentAmmo.ToString("D3");
+        //ammoText.text = currentAmmo.ToString("D3");
     }
 
     private void HandleShoot()
     {
         //Conditions to stop
-        if (!starterAssetsInputs.shoot) { return; }
+        if (!shootInput.action.IsPressed()) { return; }
         if (!canShoot) { return; }
         if (currentAmmo <= 0) { return; }
 
@@ -83,10 +86,10 @@ public class ActiveWeapon : MonoBehaviour
         //Play the shoot animation, passing the layer and normalized time (0 for each)
         animator.Play(SHOOT_STRING, 0, 0f);
 
-        if (!currentWeaponSO.IsAutomatic)
-        {
-            starterAssetsInputs.ShootInput(false);
-        }
+        //if (!currentWeaponSO.IsAutomatic)
+        //{
+        //    starterAssetsInputs.ShootInput(false);
+        //}
     }
 
     void EnableShooting()
@@ -111,23 +114,23 @@ public class ActiveWeapon : MonoBehaviour
         AdjustAmmo(currentWeaponSO.MagazineSize);
     }
 
-    void HandleZoom()
-    {
-        if (!currentWeaponSO.CanZoom) { return; }
+    //void HandleZoom()
+    //{
+    //    if (!currentWeaponSO.CanZoom) { return; }
 
-        if (starterAssetsInputs.zoom)
-        {
-            playerFollowCamera.m_Lens.FieldOfView = currentWeaponSO.ZoomAmount;
-            weaponCamera.fieldOfView = currentWeaponSO.ZoomAmount;
-            zoomVignette.SetActive(true);
-            firstPersonController.ChangeRotationSpeed(currentWeaponSO.ZoomRotateAmount);
-        }
-        else
-        {
-            playerFollowCamera.m_Lens.FieldOfView = cameraDefaultZoom;
-            weaponCamera.fieldOfView = cameraDefaultZoom;
-            zoomVignette.SetActive(false);
-            firstPersonController.ChangeRotationSpeed(defaultRotationAmount);
-        }
-    }
+    //    if (starterAssetsInputs.zoom)
+    //    {
+    //        playerFollowCamera.m_Lens.FieldOfView = currentWeaponSO.ZoomAmount;
+    //        weaponCamera.fieldOfView = currentWeaponSO.ZoomAmount;
+    //        zoomVignette.SetActive(true);
+    //        firstPersonController.ChangeRotationSpeed(currentWeaponSO.ZoomRotateAmount);
+    //    }
+    //    else
+    //    {
+    //        playerFollowCamera.m_Lens.FieldOfView = cameraDefaultZoom;
+    //        weaponCamera.fieldOfView = cameraDefaultZoom;
+    //        zoomVignette.SetActive(false);
+    //        firstPersonController.ChangeRotationSpeed(defaultRotationAmount);
+    //    }
+    //}
 }

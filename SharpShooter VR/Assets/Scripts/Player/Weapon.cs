@@ -1,4 +1,5 @@
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -14,6 +15,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField]
     GameObject aimTargetObject;
+    
+    [SerializeField]
+    TextMeshPro ammoText;
 
     //RaycastHit interacts with rigidbodys and colliders
     RaycastHit hit;
@@ -64,5 +68,10 @@ public class Weapon : MonoBehaviour
             }
             */
         }
+    }
+
+    public void UpdateAmmoText(string newText)
+    {
+        ammoText.text = newText;
     }
 }

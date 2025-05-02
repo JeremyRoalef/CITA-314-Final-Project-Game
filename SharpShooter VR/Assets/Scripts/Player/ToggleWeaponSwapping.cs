@@ -71,11 +71,11 @@ public class ToggleWeaponSwapping : MonoBehaviour
         //Locomotion Logic
         if (weaponsPickedUp[activeWeaponIndex] != null)
         {
-            EnableLocomotion(true);
+            EnableLocomotion(false);
         }
         else
         {
-            EnableLocomotion(false);
+            EnableLocomotion(true);
         }
 
         //Weapon Swap
@@ -100,11 +100,11 @@ public class ToggleWeaponSwapping : MonoBehaviour
         //Locomotion Logic
         if (weaponsPickedUp[activeWeaponIndex] != null)
         {
-            EnableLocomotion(true);
+            EnableLocomotion(false);
         }
         else
         {
-            EnableLocomotion(false);
+            EnableLocomotion(true);
         }
 
         //Weapon Swap

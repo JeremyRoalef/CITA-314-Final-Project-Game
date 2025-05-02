@@ -80,6 +80,7 @@ public class ActiveWeapon : MonoBehaviour
         if (weaponAmmoCounts.ContainsKey(weaponSO))
         {
             weaponAmmoCounts[weaponSO] += ammoCount;
+            UpdateWeaponAmmoText(weaponSO);
         }
     }
 
@@ -151,6 +152,8 @@ public class ActiveWeapon : MonoBehaviour
         Weapon newWeapon = weaponPrefabs[currentWeaponSO].GetComponent<Weapon>();
         currentWeapon = newWeapon;
 
+        UpdateWeaponAmmoText(currentWeaponSO);
+
         //AdjustAmmoForWeapon(currentWeaponSO, currentWeaponSO.MagazineSize);
     }
 
@@ -172,6 +175,12 @@ public class ActiveWeapon : MonoBehaviour
         newWeaponObj.SetActive(false);
         weaponPrefabs.Add(newWeaponSO, newWeaponObj);
         weaponAmmoCounts[newWeaponSO] = newWeaponSO.MagazineSize;
+    }
+
+    void UpdateWeaponAmmoText(WeaponSO weaponSO)
+    {
+        string ammoText = $"{weaponAmmoCounts[weaponSO]}";
+        weaponPrefabs[weaponSO].GetComponent<Weapon>().UpdateAmmoText(ammoText);
     }
 
     //void HandleZoom()

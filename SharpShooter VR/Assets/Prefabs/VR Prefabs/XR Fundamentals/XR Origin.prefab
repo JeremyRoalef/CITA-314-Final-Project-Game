@@ -2384,6 +2384,7 @@ GameObject:
   - component: {fileID: 9006804003990570905}
   - component: {fileID: 8690992704557104566}
   - component: {fileID: 7787210938354415939}
+  - component: {fileID: 2200666726511004738}
   m_Layer: 6
   m_Name: Active Weapon
   m_TagString: Untagged
@@ -2448,7 +2449,26 @@ MonoBehaviour:
   shootInput: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   maxRayDistance: 999
   ammoText: {fileID: 0}
+  playerHandRenderer: {fileID: 5484090824570963563}
   firstPersonController: {fileID: 0}
+--- !u!114 &2200666726511004738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7760290545929583358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fe6fdc52fa5a74cace23b75e670b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  togglePreviousWeaponInput: {fileID: -5833266059119080206, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  toggleNextWeaponInput: {fileID: 2173760057207958076, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  turnProvider: {fileID: 684843304887440522}
+  grabMoveProvider: {fileID: 2464050371157291929}
+  weaponsPickedUp: []
+  activeWeapon: {fileID: 7787210938354415939}
 --- !u!1 &7928854021454805154
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ public class Weapon : MonoBehaviour
     LayerMask interactionLayers;
 
     [SerializeField]
-    GameObject aimTargetPrefab;
-
     GameObject aimTargetObject;
 
     //RaycastHit interacts with rigidbodys and colliders
@@ -23,7 +21,6 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        aimTargetObject = Instantiate(aimTargetPrefab);
         aimTargetObject.SetActive(false);
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
@@ -35,7 +32,7 @@ public class Weapon : MonoBehaviour
             out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
         {
             //If hit has output, this will run
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
 
             aimTargetObject.SetActive(true);
             aimTargetObject.transform.position = hit.point;

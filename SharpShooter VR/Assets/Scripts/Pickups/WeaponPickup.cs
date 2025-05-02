@@ -7,11 +7,11 @@ public class WeaponPickup : Pickup
 
     const string PLAYER_STRING = "Player";
 
-    protected override void OnPickup(ActiveWeapon activeWeapon)
+    protected override void OnPickup(ToggleWeaponSwapping activeWeapon)
     {
         if (activeWeapon != null)
         {
-            activeWeapon.SwitchWeapon(weaponSO);
+            activeWeapon.AddNewWeapon(weaponSO);
         }
     }
 }

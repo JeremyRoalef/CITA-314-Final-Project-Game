@@ -28,6 +28,9 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI ammoText;
 
+    [SerializeField]
+    GameObject playerHandRenderer;
+
     Animator animator;
 
     Weapon currentWeapon;
@@ -39,6 +42,7 @@ public class ActiveWeapon : MonoBehaviour
     float cameraDefaultZoom;
     float defaultRotationAmount;
     bool canShoot = true;
+    bool weaponIsActive = false;
     int currentAmmo;
 
     private void Awake()
@@ -76,6 +80,7 @@ public class ActiveWeapon : MonoBehaviour
         //Conditions to stop
         if (!shootInput.action.IsPressed()) { return; }
         if (!canShoot) { return; }
+        if (!weaponIsActive) { return; }
         if (currentAmmo <= 0) { return; }
 
         canShoot = false;
@@ -104,7 +109,19 @@ public class ActiveWeapon : MonoBehaviour
             Destroy(currentWeapon.gameObject);
         }
 
-        AdjustAmmo(-currentAmmo);
+        //No active weapon
+        if (newWeaponSO == null)
+        {
+            playerHandRenderer.SetActive(true);
+            weaponIsActive = false;
+            return;
+        }
+
+        //Weapon in use
+        playerHandRenderer.SetActive(false);
+        weaponIsActive = true;
+
+        //AdjustAmmo(-currentAmmo);
 
         //Change weapon
         currentWeaponSO = newWeaponSO;

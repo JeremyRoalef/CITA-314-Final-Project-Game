@@ -1,26 +1,40 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-public abstract class Pickup : MonoBehaviour
+public abstract class Pickup : XRGrabInteractable
 {
     [SerializeField]
     float rotationSpeed = 100f;
 
-    private void Update()
-    {
-        //transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
-    }
+    //private void Update()
+    //{
+    //    transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+    //}
 
     const string PLAYER_STRING = "Player";
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag(PLAYER_STRING))
+    //    {
+    //        ActiveWeapon weaponSwaps = other.GetComponentInChildren<ActiveWeapon>();
+    //        OnPickup(weaponSwaps);
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if (other.CompareTag(PLAYER_STRING))
+        base.OnSelectEntered(args);
+
+        ToggleWeaponSwapping[] weaponSwaps = FindObjectsByType<ToggleWeaponSwapping>(FindObjectsSortMode.None);
+        foreach(ToggleWeaponSwapping weaponSwap in weaponSwaps)
         {
-            ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
-            OnPickup(activeWeapon);
-            Destroy(gameObject);
+            OnPickup(weaponSwap);
         }
+
+        Destroy(gameObject);
     }
 
-    protected abstract void OnPickup(ActiveWeapon activeWeapon);
+    protected abstract void OnPickup(ToggleWeaponSwapping weaponSwap);
 }

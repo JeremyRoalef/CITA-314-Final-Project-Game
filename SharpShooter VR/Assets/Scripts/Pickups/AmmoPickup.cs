@@ -3,10 +3,17 @@ using UnityEngine;
 public class AmmoPickup : Pickup
 {
     [SerializeField]
-    int ammoAmount = 24;
+    [Tooltip("Add weapon types that will receive the ammo here")]
+    WeaponSO[] ammoForGivenWeaponSO;
 
-    protected override void OnPickup(ToggleWeaponSwapping activeWeapon)
+    [SerializeField]
+    int ammoCount = 24;
+
+    protected override void OnPickup(ToggleWeaponSwapping weaponSwap)
     {
-        //activeWeapon.AdjustAmmo(ammoAmount);
+        foreach (WeaponSO weaponSO in ammoForGivenWeaponSO)
+        {
+            weaponSwap.AddAmmoForWeapon(weaponSO, ammoCount);
+        }
     }
 }

@@ -5122,6 +5122,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1961705464}
     m_Modifications:
+    - target: {fileID: 4134210410243148037, guid: 539d30083b27d4f4c88b894da51f07b5, type: 3}
+      propertyPath: ammoForGivenWeaponSO.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134210410243148037, guid: 539d30083b27d4f4c88b894da51f07b5, type: 3}
+      propertyPath: 'ammoForGivenWeaponSO.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fd5d3cc99fd9d4d46bebdbd4fea6a185, type: 2}
+    - target: {fileID: 4134210410243148037, guid: 539d30083b27d4f4c88b894da51f07b5, type: 3}
+      propertyPath: 'ammoForGivenWeaponSO.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c65e21d4c7fba2646a7b50a6b3d89829, type: 2}
+    - target: {fileID: 4134210410243148037, guid: 539d30083b27d4f4c88b894da51f07b5, type: 3}
+      propertyPath: 'ammoForGivenWeaponSO.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 63216e95ce130594c88a1be89f929056, type: 2}
     - target: {fileID: 6921758566338515309, guid: 539d30083b27d4f4c88b894da51f07b5, type: 3}
       propertyPath: m_Name
       value: Ammo Pickup
@@ -5308,6 +5324,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2966665878942219507, guid: 41eee12ee137fff4686de28a3a91df34, type: 3}
   m_PrefabInstance: {fileID: 5135881410008810475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1500848441
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1961705464}
+    m_Modifications:
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.52659917
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5139852032971396468, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+      propertyPath: m_Name
+      value: Sniper Rifle Pickup (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
 --- !u!1001 &1541336362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5369,6 +5442,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184baddc7edce5641a724e5819d3f3b7, type: 3}
+--- !u!4 &1564239468 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4959676986363292176, guid: 94179e3286bfd964497176d4d247a5d8, type: 3}
+  m_PrefabInstance: {fileID: 1500848441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1613313795 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6837063038347881358, guid: 05023fb08f413f44e90981e4af589979, type: 3}
@@ -5884,6 +5962,7 @@ Transform:
   - {fileID: 1004736096}
   - {fileID: 1992043350}
   - {fileID: 525450938}
+  - {fileID: 1564239468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1992043350 stripped
@@ -6339,6 +6418,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
+    - target: {fileID: 3595361957028835974, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4071818281954029729, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
       propertyPath: m_Name
       value: XR Origin

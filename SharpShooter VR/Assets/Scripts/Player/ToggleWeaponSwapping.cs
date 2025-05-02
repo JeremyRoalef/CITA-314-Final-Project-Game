@@ -139,4 +139,9 @@ public class ToggleWeaponSwapping : MonoBehaviour
         //WeaponSO not already picked up
         weaponsPickedUp.Add(newWeapon);
     }
+
+    internal void AddAmmoForWeapon(WeaponSO weaponSO, int ammoCount)
+    {
+        activeWeapon.AdjustAmmoForWeapon(weaponSO, ammoCount);
+    }
 }

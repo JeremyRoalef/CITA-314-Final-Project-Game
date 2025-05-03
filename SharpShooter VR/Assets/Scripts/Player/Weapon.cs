@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
             out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
         {
             //If hit has output, this will run
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
 
             EnemyHealth enemyHealth = hit.transform.GetComponentInParent<EnemyHealth>();
             enemyHealth?.TakeDamage(weaponSO.Damage); //Enemy health null? (same as below)

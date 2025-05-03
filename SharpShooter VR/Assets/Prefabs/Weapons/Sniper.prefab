@@ -54,7 +54,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 8609124288119837206}
   interactionLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 471
   aimTargetObject: {fileID: 3559632976079592182}
   ammoText: {fileID: 3853250509381327088}
 --- !u!114 &-1574765441927578427

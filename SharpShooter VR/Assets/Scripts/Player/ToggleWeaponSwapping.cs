@@ -24,6 +24,9 @@ public class ToggleWeaponSwapping : MonoBehaviour
     [SerializeField]
     TwoHandedGrabMoveProvider grabMoveProvider;
 
+    [SerializeField]
+    [Tooltip("The objects responsible for ray interactions on the active weapon")]
+    GameObject[] rayControllers;
 
 
     [Header("Weapon Info")]
@@ -116,6 +119,10 @@ public class ToggleWeaponSwapping : MonoBehaviour
     {
         turnProvider.enabled = isActive;
         grabMoveProvider.enabled = isActive;
+        foreach (GameObject rayController in rayControllers)
+        {
+            rayController.SetActive(isActive);
+        }
     }
 
     private void SwitchToNewWeapon()

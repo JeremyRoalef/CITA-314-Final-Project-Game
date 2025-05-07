@@ -56,6 +56,8 @@ public class DrawerInteractable : XRGrabInteractable
     //Attributes
     const string DEFAULT_LAYER = "Default";
     const string GRAB_LAYER = "Grab";
+    const string GRAB_RAY_LAYER = "Grab Ray";
+
     bool isGrabbed = false;
     Rigidbody rb;
     //XRSocketInteractable HAS AN AWAKE METHOD!!! DO NOT OVERRIDE ITS AWAKE METHOD WITHOUT CALLING IT
@@ -120,7 +122,7 @@ public class DrawerInteractable : XRGrabInteractable
         if (isLocked)
         {
             //Change interaction layer mask
-            ChangeLayerMask(DEFAULT_LAYER);
+            ChangeLayerMask(GetGrabLayers());
         }
         else
         {
@@ -138,7 +140,7 @@ public class DrawerInteractable : XRGrabInteractable
         if (!isDetached)
         {
             //Allow the player to grab the object again
-            ChangeLayerMask(GRAB_LAYER);
+            ChangeLayerMask(GetGrabLayers());
 
             //Object is not grabbed
             isGrabbed = false;
@@ -177,17 +179,17 @@ public class DrawerInteractable : XRGrabInteractable
         if (transform.localPosition.x >= limitPositions.x + limitDistances.x ||
             transform.localPosition.x <= limitPositions.x - limitDistances.x)
         {
-            ChangeLayerMask(DEFAULT_LAYER);
+            ChangeLayerMask(GetDefaultLayers());
         }
         else if (transform.localPosition.y >= limitPositions.y + limitDistances.y ||
             transform.localPosition.y <= limitPositions.y - limitDistances.y)
         {
-            ChangeLayerMask(DEFAULT_LAYER);
+            ChangeLayerMask(GetDefaultLayers());
         }
         else if (drawerTransform.localPosition.z <= limitPositions.z - limitDistances.z)
         {
             isGrabbed = false;
-            ChangeLayerMask(DEFAULT_LAYER);
+            ChangeLayerMask(GetDefaultLayers());
             drawerTransform.localPosition = limitPositions;
         }
         else if (drawerTransform.localPosition.z >= maxZPos + limitDistances.z)
@@ -200,7 +202,7 @@ public class DrawerInteractable : XRGrabInteractable
                     drawerTransform.localPosition.x,
                     drawerTransform.localPosition.y,
                     maxZPos);
-                ChangeLayerMask(DEFAULT_LAYER);
+                ChangeLayerMask(GetDefaultLayers());
             }
             else
             {
@@ -217,8 +219,18 @@ public class DrawerInteractable : XRGrabInteractable
     }
 
     //Method to change the object's interaction layer mask for grabbing/ungrabbing purposes
-    void ChangeLayerMask(string layerMask)
+    void ChangeLayerMask(string[] layerMasks)
     {
-        interactionLayers = InteractionLayerMask.GetMask(layerMask);
+        interactionLayers = InteractionLayerMask.GetMask(layerMasks);
+    }
+
+    string[] GetDefaultLayers()
+    {
+        return new string[1] {DEFAULT_LAYER};
+    }
+
+    string[] GetGrabLayers()
+    {
+        return new string[2] { GRAB_LAYER, GRAB_RAY_LAYER};
     }
 }

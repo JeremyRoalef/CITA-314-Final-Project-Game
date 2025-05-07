@@ -6878,6 +6878,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
+    - target: {fileID: 2074998132753977674, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3612891332099295328, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.39
@@ -6930,6 +6934,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
+    - target: {fileID: 8654938217767471974, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

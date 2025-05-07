@@ -5719,7 +5719,7 @@ MonoBehaviour:
   grabInteractables: []
   grabSound: {fileID: 0}
   activatedSound: {fileID: 0}
-  grabClip: {fileID: 0}
+  grabClip: {fileID: 8300000, guid: 7ada397aca057da48826b5380599713a, type: 3}
   keyClip: {fileID: 0}
   grabActivatedClip: {fileID: 0}
   wandActivatedClip: {fileID: 0}

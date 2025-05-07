@@ -5687,6 +5687,65 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4779037617583648344, guid: 7ab579e6d56d0254b856badb69a7cf57, type: 3}
   m_PrefabInstance: {fileID: 7815464747826598891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1811316928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811316930}
+  - component: {fileID: 1811316929}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1811316929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811316928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5f158a65970d846beccdc51ac9b9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabInteractables: []
+  grabSound: {fileID: 0}
+  activatedSound: {fileID: 0}
+  grabClip: {fileID: 0}
+  keyClip: {fileID: 0}
+  grabActivatedClip: {fileID: 0}
+  wandActivatedClip: {fileID: 0}
+  drawer: {fileID: 0}
+  cabinetDoors:
+  - {fileID: 0}
+  - {fileID: 0}
+  comboLock: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  backgroundMusicClip: {fileID: 0}
+  fallBackClip: {fileID: 0}
+--- !u!4 &1811316930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811316928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863446904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6932,3 +6991,4 @@ SceneRoots:
   - {fileID: 3408505327382908901}
   - {fileID: 1961705464}
   - {fileID: 2052940826}
+  - {fileID: 1811316930}

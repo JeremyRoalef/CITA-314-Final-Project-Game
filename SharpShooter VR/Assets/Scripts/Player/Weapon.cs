@@ -5,6 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
+    AudioSource[] shootSources;
+
+    [SerializeField]
+    AudioClip shootAudioClip;
+
+    [SerializeField]
     GameObject shootOrigin;
 
     [SerializeField]
@@ -27,6 +33,10 @@ public class Weapon : MonoBehaviour
     {
         aimTargetObject.SetActive(false);
         impulseSource = GetComponent<CinemachineImpulseSource>();
+        foreach (AudioSource source in shootSources)
+        {
+            source.clip = shootAudioClip;
+        }
     }
 
     private void Update()
@@ -48,8 +58,10 @@ public class Weapon : MonoBehaviour
         muzzleFlash.Play();
         impulseSource.GenerateImpulse();
 
+        PlayShootSound();
+
         //Last argument ignores triggers
-        if (Physics.Raycast(shootOrigin.transform.position, shootOrigin.transform.forward, 
+        if (Physics.Raycast(shootOrigin.transform.position, shootOrigin.transform.forward,
             out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
         {
             //If hit has output, this will run
@@ -67,6 +79,21 @@ public class Weapon : MonoBehaviour
                 enemyHealth.TakeDamage(damageAmount);
             }
             */
+        }
+    }
+
+    private void PlayShootSound()
+    {
+        if (shootSources == null) return;
+        if (shootAudioClip == null) return;
+
+        foreach (AudioSource source in shootSources){
+            if (source.isPlaying) { continue; }
+            else
+            {
+                source.Play();
+                break;
+            }
         }
     }
 

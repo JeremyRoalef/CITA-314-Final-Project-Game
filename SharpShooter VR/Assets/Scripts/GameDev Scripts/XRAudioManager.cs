@@ -7,6 +7,17 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRAudioManager : MonoBehaviour
 {
+    [Header("Player Sounds")]
+
+    [SerializeField]
+    ActionBasedContinuousMoveProvider continuousMoveProvider;
+
+    [SerializeField]
+    AudioSource playerMoveSource;
+
+    [SerializeField]
+    AudioClip playerMoveClip;
+
     [Header("Grab Interactables")]
 
     [SerializeField]
@@ -27,14 +38,10 @@ public class XRAudioManager : MonoBehaviour
     [SerializeField]
     AudioClip grabActivatedClip;
 
-    [SerializeField]
-    AudioClip wandActivatedClip;
-
-
     [Header("Drawer Interactables")]
 
     [SerializeField]
-    DrawerInteractable drawer;
+    DrawerInteractable[] drawers;
 
     bool isDetatched;
     XRSocketInteractor drawerSocket;
@@ -82,14 +89,30 @@ public class XRAudioManager : MonoBehaviour
             fallBackClip = AudioClip.Create(FALL_BACK_CLIP, 1, 1, 1000, true);
         }
 
+        //Player move
+        if (playerMoveSource != null)
+        {
+            if (playerMoveClip != null)
+            {
+                playerMoveSource.clip = playerMoveClip;
+            }
+            else
+            {
+                playerMoveSource.clip = fallBackClip;
+            }
+        }
+
         //Grabbable Objects
         SetGrabbables();
 
         //Drawer
-        if (drawer != null)
-        {
-            SetDrawerInteractable();
+        foreach (DrawerInteractable drawer in drawers) {
+            if (drawer != null)
+            {
+                SetDrawerInteractable(drawer);
+            }
         }
+
 
         //Cabinet Doors
         cabinetDoorSound = new AudioSource[cabinetDoors.Length];
@@ -131,11 +154,14 @@ public class XRAudioManager : MonoBehaviour
             grabInteractables[i].activated.RemoveListener(OnActivatedGrabbable);
         }
 
-        if (drawer != null)
+        foreach (DrawerInteractable drawer in drawers)
         {
-            drawer.selectEntered.RemoveListener(OnDrawerMove);
-            drawer.selectExited.RemoveListener(OnDrawerStop);
-            drawer.OnDrawerDetatch.RemoveListener(OnDrawerDetatch);
+            if (drawer != null)
+            {
+                drawer.selectEntered.RemoveListener(OnDrawerMove);
+                drawer.selectExited.RemoveListener(OnDrawerStop);
+                drawer.OnDrawerDetatch.RemoveListener(OnDrawerDetatch);
+            }
         }
 
         if (comboLock != null)
@@ -150,6 +176,26 @@ public class XRAudioManager : MonoBehaviour
         {
             cabinetDoors[i].OnHingeSelected.RemoveListener(OnDoorMove);
             cabinetDoors[i].selectExited.RemoveListener(OnDoorStop);
+        }
+    }
+
+    private void Update()
+    {
+        if (continuousMoveProvider != null)
+        {
+            Vector2 move = continuousMoveProvider.leftHandMoveAction.action.ReadValue<Vector2>();
+
+            if (move.x != 0 || move.y != 0)
+            {
+                if (!playerMoveSource.isPlaying)
+                {
+                    playerMoveSource.Play();
+                }
+            }
+            else
+            {
+                playerMoveSource.Stop();
+            }
         }
     }
 
@@ -277,7 +323,7 @@ public class XRAudioManager : MonoBehaviour
         }
     }
 
-    private void SetDrawerInteractable()
+    private void SetDrawerInteractable(DrawerInteractable drawer)
     {
         //Set up audio source
         drawerSound = drawer.transform.AddComponent<AudioSource>();

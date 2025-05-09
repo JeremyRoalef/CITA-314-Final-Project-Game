@@ -211,7 +211,7 @@ MonoBehaviour:
       m_Calls: []
   positionLimits: {x: 0.5, y: 0.5, z: 0.5}
   isLocked: 0
-  hingeMoveClip: {fileID: 0}
+  hingeMoveClip: {fileID: 8300000, guid: 531040b2f4f635c42b721c8a38d52c47, type: 3}
   OnOpen:
     m_PersistentCalls:
       m_Calls: []

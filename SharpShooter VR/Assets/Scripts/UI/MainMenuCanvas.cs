@@ -13,6 +13,6 @@ public class MainMenuCanvas : XRButtonInteractable
     
     public void StartGame()
     {
-        SceneManager.LoadScene("VR TESTING");
+        SceneManager.LoadScene("MainLevel (VR)");
     }
 }

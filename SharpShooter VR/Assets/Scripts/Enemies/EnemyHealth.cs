@@ -17,6 +17,14 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = startingHealth;
     }
+
+    private void OnEnable()
+    {
+        currentHealth = startingHealth;
+        gameManager = FindFirstObjectByType<GameManager>();
+        gameManager.AdjustEnemiesLeft(1);
+    }
+
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -34,11 +42,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
-        //Temporary
         Instantiate(deathVFX, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        //Temporary
+        gameManager = FindFirstObjectByType<GameManager>();
+        if (gameManager != null )
         gameManager.AdjustEnemiesLeft(-1);
-
-
-        Destroy(gameObject);
     }
 }

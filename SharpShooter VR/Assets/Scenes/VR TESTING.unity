@@ -6680,10 +6680,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
-    - target: {fileID: 7787210938354415939, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
-      propertyPath: startingWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: c65e21d4c7fba2646a7b50a6b3d89829, type: 2}
     - target: {fileID: 8647642076517412738, guid: a6644d644236f154684a84b169cf2f0e, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -6885,21 +6881,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1477462373}
     - target: {fileID: 2074998132753977674, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: socketedClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1353d8f8c9d2b014aa24e6099608acab, type: 3}
-    - target: {fileID: 2074998132753977674, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: drawerMoveClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 126e9740bced1ec45a24db3781a70d45, type: 3}
-    - target: {fileID: 2074998132753977674, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
-    - target: {fileID: 2074998132753977674, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3612891332099295328, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.39
@@ -6948,26 +6932,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
-    - target: {fileID: 6787464446317287816, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.11000013
-      objectReference: {fileID: 0}
-    - target: {fileID: 8654938217767471974, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: socketedClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1353d8f8c9d2b014aa24e6099608acab, type: 3}
-    - target: {fileID: 8654938217767471974, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: drawerMoveClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 126e9740bced1ec45a24db3781a70d45, type: 3}
     - target: {fileID: 8654938217767471974, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1477462373}
-    - target: {fileID: 8654938217767471974, guid: ad2a6c818cbf3a2439aaa5697de220ce, type: 3}
-      propertyPath: m_InteractionLayers.m_Bits
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

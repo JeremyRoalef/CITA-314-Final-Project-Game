@@ -2,10 +2,20 @@ using System;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource playerHealthSource;
+
+    [SerializeField]
+    AudioClip playerHitClip;
+
+    [SerializeField]
+    AudioClip playerDeathClip;
+
     [SerializeField]
     int startingHealth = 5;
 
@@ -25,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     GameObject gameOverContainer;
 
     int gameOverVirtualCameraPriority = 20;
+    bool isDead = false;
 
     private void Awake()
     {
@@ -34,6 +45,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
+        playerHealthSource.clip = playerHitClip;
+        playerHealthSource.Play();
+
         currentHealth -= amount;
 
         AdjustShieldUI();
@@ -61,12 +76,18 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        weaponCamera.parent = null;
-        deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
-        gameOverContainer.SetActive(true);
-        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
-        starterAssetsInputs.SetCursorState(false);
+        if (isDead) return;
 
-        Destroy(gameObject);
+        isDead = true;
+
+        playerHealthSource.clip = playerDeathClip;
+        playerHealthSource.Play();
+
+        Invoke("LoadMainMenuScene", 3f);
+    }
+
+    void LoadMainMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

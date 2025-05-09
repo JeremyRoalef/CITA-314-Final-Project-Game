@@ -33,6 +33,37 @@ Transform:
   - {fileID: 3702073491503334792}
   m_Father: {fileID: 6344095015534272472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4912574708026341979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6853334168099319316}
+  m_Layer: 0
+  m_Name: Enemy Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6853334168099319316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912574708026341979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6344095015534272472}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5433795909966638761
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +129,7 @@ Transform:
   m_Children:
   - {fileID: 6442683382038454}
   - {fileID: 3475109472099136449}
+  - {fileID: 6853334168099319316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7123739311749389472
@@ -149,9 +181,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6271776237991709153, guid: 46751888bd816234fa0b244c167cb8c3, type: 3}
-  delayBetweenSpawning: 5
-  initialSpawnDelay: 1
+  delayBetweenSpawning: 20
+  initialSpawnDelay: 20
   spawnPoint: {fileID: 3475109472099136449}
+  enemyPool: 5
+  enemyPoolParentObj: {fileID: 4912574708026341979}
 --- !u!1001 &2752502380158080349
 PrefabInstance:
   m_ObjectHideFlags: 0

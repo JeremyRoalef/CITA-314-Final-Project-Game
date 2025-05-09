@@ -203,7 +203,11 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   rotationSpeed: 100
-  ammoAmount: 24
+  ammoForGivenWeaponSO:
+  - {fileID: 11400000, guid: c65e21d4c7fba2646a7b50a6b3d89829, type: 2}
+  - {fileID: 11400000, guid: fd5d3cc99fd9d4d46bebdbd4fea6a185, type: 2}
+  - {fileID: 11400000, guid: 63216e95ce130594c88a1be89f929056, type: 2}
+  ammoCount: 24
 --- !u!54 &3128093711126944193
 Rigidbody:
   m_ObjectHideFlags: 0
